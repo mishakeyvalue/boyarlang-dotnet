@@ -6,7 +6,7 @@ open System.Linq.Expressions
 type Everything = Declaration list
 
 and Declaration = 
-    | VariableDeclaration of VariableDeclaration
+    | StaticVariableDeclaration of VariableDeclaration
     | FunctionDeclaration of FunctionDeclaration
 
 and VariableDeclaration =
@@ -33,7 +33,9 @@ and Statement =
     | ReturnStatement of ReturnStatement
     | BreakStatement
 
-and ExpressionStatement = Expression of Expression
+and ExpressionStatement = 
+    | Expression of Expression
+    | Nop
 
 and CompoundStatement = LocalDeclarations * Statement list
 and LocalDeclarations = VariableDeclaration list
@@ -46,6 +48,7 @@ and WhileStatement = Expression * Statement
 and ReturnStatement = Expression option
 
 and Expression = 
+    | ZeroDimensionalAssignmentExpression of NameReference * Expression
     | BinaryExpression of Expression * BinaryOperator * Expression
     | UnaryExpression of UnaryOperator * Expression
     | NameExpression of NameReference

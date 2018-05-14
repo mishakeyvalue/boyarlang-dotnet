@@ -6,7 +6,16 @@
 
   <ItemGroup>
     <Compile Include="AST.fs" />
+    <Compile Include="PigletWrappers.fs" />
+    <Compile Include="Parser.fs" />
+    <None Include="Parser.fsx" />
     <Compile Include="Library.fs" />
+  </ItemGroup>
+
+  <ItemGroup />
+
+  <ItemGroup>
+    <PackageReference Include="Piglet" Version="1.4.0" />
   </ItemGroup>
 
 </Project>
